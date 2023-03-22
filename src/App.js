@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import io from 'socket.io-client';
+import { useEffect, useState } from 'react';
+const socket = io.connect('http://localhost:3003');
 
 function App() {
+
+  const [backMessage, setBackMessage] = useState('');
+
+  useEffect(() => {
+    socket.on('server:message', (message) => {
+      console.log(message);
+      setBackMessage(message.message);
+    });
+  },[socket]) 
+
+  const sendMessage = () => {
+    console.log('Message sent')
+    socket.emit('client:message', {message: 'Im from react'})
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Send a message</h1>
+      <button onClick={sendMessage}>Send</button>
+
+      <p>The message from the back will be displayed here:</p>
+      <p>{backMessage}</p>
     </div>
   );
 }
