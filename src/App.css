@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'roboto';
+}
+
+thead {
+    background-color: #eeeeee;
+}
+
+table, tr, td, th{
+    border: 2px solid #eeeeee;
+    padding: 1.3rem;
+    border-collapse: collapse;
+}
+
+.btn-p {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-td{
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-edit {
+    background-color: rgb(255, 174, 0);
+}
+
+.btn-delete{
+    background-color: rgb(197, 70, 70);
+}
+
+.btn-create{
+    background-color: rgb(89, 166, 89);
+}
+
+.btn-cancel{
+    background-color: black;
+}
