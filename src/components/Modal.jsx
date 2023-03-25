@@ -2,12 +2,9 @@ import { Modal, TextField } from "@mui/material";
 import '../styles/Modal.css';
 import { useRef } from "react";
 
-//CODIGO SUCIO
-import io from 'socket.io-client';
-const socket = io.connect('http://localhost:3003');
+function ModalComponent({open, closeButton, createEditButton}) {    
 
-function ModalComponent({open, setOpen, onCreateEdit}) {
-
+    //REF HOOOKS
     const idRef = useRef();
     const nameRef = useRef();
     const usernameRef = useRef();
@@ -24,10 +21,8 @@ function ModalComponent({open, setOpen, onCreateEdit}) {
             email: emailRef.current.value
         }
 
-        console.log(user);
-        //CODIGO SUCIO WTF
-        socket.emit('client:createEditUser', user);
-        setOpen();
+        createEditButton(user);
+        closeButton(false);
     }
 
     return (
@@ -61,7 +56,7 @@ function ModalComponent({open, setOpen, onCreateEdit}) {
 
                     <div className="form-row-btn">
                         <button 
-                            onClick={setOpen} 
+                            onClick={() => closeButton(false)} 
                             className='btn-p btn-cancel'
                         >
                             Cancel

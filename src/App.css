@@ -5,13 +5,17 @@
     font-family: 'roboto';
 }
 
+.App{
+    display: flex;
+}
+
 thead {
     background-color: #eeeeee;
 }
 
 table, tr, td, th{
     border: 2px solid #eeeeee;
-    padding: 1.3rem;
+    padding: 2rem 1.5rem;
     border-collapse: collapse;
 }
 
@@ -33,6 +37,10 @@ table, tr, td, th{
     gap: 1rem;
 }
 
+.btn-profile{
+    background-color: dodgerblue;
+}
+
 .btn-edit {
     background-color: rgb(255, 174, 0);
 }
@@ -42,9 +50,51 @@ table, tr, td, th{
 }
 
 .btn-create{
-    background-color: rgb(89, 166, 89);
+    background-color: rgb(255, 141, 160);
 }
 
 .btn-cancel{
     background-color: black;
+}
+
+/*SIDEBAR*/
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 20%;
+    padding: 2rem;
+    background-color: #eeeeee;
+    height: 100vh;
+}
+
+.item-list{
+    display: grid;
+    list-style: none;
+}
+
+
+.item-link{
+    border-radius: 5px;
+    width: 100%;
+    font-weight: bold;
+    font-size: larger;
+    color: rgb(85, 85, 85);
+    padding: 2rem 1rem;
+    text-decoration: none;
+    display: block;
+    
+    transition: 0.1s ease all;
+}
+
+.item-link:hover{
+    background-color: rgb(255, 141, 160);
+    color: white;
+}
+
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
