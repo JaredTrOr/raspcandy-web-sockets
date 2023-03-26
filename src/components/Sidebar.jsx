@@ -17,13 +17,13 @@ function Sidebar(){
                     </Link>
                 </li>
                 <li className='item'>
-                    <Link className='item-link' to='/createUser'>
+                    <Link className='item-link' to='/administrators'>
                         <FaPencilAlt/>
                         Manage administrators
                     </Link>
                 </li>
                 <li className='item'>
-                    <Link className='item-link' to='/createUser'>
+                    <Link className='item-link' to='/purchases'>
                         <FaShoppingBag/>
                         Manage purchases
                     </Link>
