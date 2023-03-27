@@ -29,12 +29,13 @@ function ModalComponent({open, closeButton, createEditButton, user, setUser}) {
             closeButton(false);
         }
         else{
-            setMessage('Fill all the fields pls >:/')
+            setMessage('Llena todos los campos porfavor >:/')
         }
     }
 
     const handleOnClose = () => {
-        closeButton(false)
+        closeButton(false);
+        setMessage('');
         setUser({});
     }
 
@@ -46,45 +47,50 @@ function ModalComponent({open, closeButton, createEditButton, user, setUser}) {
         >
             <div className="modal-container">
                 <form action="" className="form-container">
-                    <h1>{user.name === undefined ? 'Create user' : 'Edit user'}</h1>
+                    <h1>{user.name === undefined ? 'Crear usuario' : 'Editar usuario'}</h1>
                     <h4 className="message-validation">{message}</h4>
                     <div className="form-row">
+                        <span>Id:</span>
                         <input  type="text" value={id} className="input" placeholder="Id" disabled required/>
                     </div>
                     <div className="form-row">
+                        <span>Escriba su nombre: </span>
                         <input 
                             onClick={() => setMessage('')}
                             onChange={(e) => setName(e.target.value)}
                             type="text" 
                             value={name} 
                             className="input" 
-                            placeholder="Name" required
+                            placeholder="Nombre" required
                         />
                     </div>
                     <div className="form-row">
+                        <span>Escriba su usuario</span>
                         <input 
                             onClick={() => setMessage('')}
                             onChange={(e) => setUsername(e.target.value)}
                             type="text" 
                             value={username} 
                             className="input" 
-                            placeholder="Username" required
+                            placeholder="usuario" required
                         />
                     </div>
                     {
                     user.name === undefined && 
                     <div className="form-row">
+                        <span>Escriba su contraseña</span>
                         <input 
                             onClick={() => setMessage('')}
                             onChange={(e) => setPassword(e.target.value)}
                             type="text" 
                             value={password} 
                             className="input" 
-                            placeholder="Password" required
+                            placeholder="Contraseña" required
                         />
                     </div>
                     }
                     <div className="form-row">
+                        <span>Escriba su e-mail:</span>
                         <input 
                             onClick={() => setMessage('')}
                             onChange={(e) => setEmail(e.target.value)}
@@ -99,14 +105,14 @@ function ModalComponent({open, closeButton, createEditButton, user, setUser}) {
                             onClick={handleOnClose} 
                             className='btn-p btn-cancel'
                         >
-                            Cancel
+                            Cancelar
                         </button>
 
                         <button 
                             onClick={handleOnClick} 
                             className='btn-p btn-create'
                         >
-                            {user.name === undefined ? 'Create' : 'Edit'}
+                            {user.name === undefined ? 'Crear' : 'Editar'}
                         </button>
                     </div>    
                 </form> 

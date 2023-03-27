@@ -14,10 +14,10 @@ function UserTable({users, editButton, deleteButton, profileButton}) {
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Name</th>
-                    <th>Username</th>
+                    <th>Nombre</th>
+                    <th>Usuario</th>
                     <th>Email</th>
-                    <th>Operations</th>
+                    <th>Operaciones</th>
                 </tr>
             </thead>
 
@@ -36,14 +36,14 @@ function UserTable({users, editButton, deleteButton, profileButton}) {
                                         onClick={() => handleOnProfileButton(user._id)}
                                     >
                                         <FaUserAlt />
-                                        Profile
+                                        Perfil
                                     </button>
                                     <button
                                         className='btn-p btn-edit'
                                         onClick={() => editButton(user._id)}
                                     >
                                         <FaRegEdit />
-                                        Edit
+                                        Editar
                                     </button>
 
                                     <button
@@ -51,7 +51,7 @@ function UserTable({users, editButton, deleteButton, profileButton}) {
                                         onClick={() => deleteButton(user._id)}
                                     >
                                         <FaTrash />
-                                        Delete
+                                        Borrar
                                     </button>
                                 </div>
                             </td>

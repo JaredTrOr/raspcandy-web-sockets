@@ -1,22 +1,22 @@
 import { FaRegEdit, FaTrash, FaUserAlt } from 'react-icons/fa'
 
-function AdminTable({admins}) {
+function AdminTable({admins, editButton, deleteButton}) {
     return(
         <table>
             <thead>
                 <tr>
                     <th rowSpan={2}>Id</th>
-                    <th rowSpan={2}>Name</th>
-                    <th rowSpan={2}>Username</th>
+                    <th rowSpan={2}>Nombre</th>
+                    <th rowSpan={2}>Usuario</th>
                     <th rowSpan={2}>Email</th>
-                    <th colSpan={3}>Address</th>
-                    <th rowSpan={2}>Operations</th>
+                    <th colSpan={3}>Dirección</th>
+                    <th rowSpan={2}>Operaciones</th>
                 </tr>
 
                 <tr>
-                    <th>Street</th>
-                    <th>Number</th>
-                    <th>Place</th>
+                    <th>Calle</th>
+                    <th>Número</th>
+                    <th>Comunidad</th>
                 </tr>
             </thead>
 
@@ -36,16 +36,18 @@ function AdminTable({admins}) {
                                     <div className="btn-td">
                                         <button
                                             className='btn-p btn-edit'
+                                            onClick={() => editButton(admin._id)}
                                         >
                                             <FaRegEdit />
-                                            Edit
+                                            Editar
                                         </button>
 
                                         <button
                                             className='btn-p btn-delete'
+                                            onClick={() => deleteButton(admin._id)}
                                         >
                                             <FaTrash />
-                                            Delete
+                                            Borrar
                                         </button>
                                     </div>
                                 </td>

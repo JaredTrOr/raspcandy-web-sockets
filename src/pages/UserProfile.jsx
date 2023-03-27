@@ -33,24 +33,24 @@ function UserProfile() {
         <div className="main-container">
             <div className="profile-container">
                 <div className="profile-row">
-                    <h1>Profile <FaUserAlt/></h1>
+                    <h1>Perfil <FaUserAlt/></h1>
 
                     <div className="user-information-card">
-                        <p>Name: {user.name}</p>
-                        <p>Username: {user.username}</p>
+                        <p>Nombre: {user.name}</p>
+                        <p>Usuario: {user.username}</p>
                         <p>Email: {user.email}</p>
                     </div>
 
-                    <h1>History</h1>
+                    <h1>Historial</h1>
 
                     <div className="user-information-card">
-                        <p>Total amount of purchases: {userCandyPurchases.totalAmount}</p>
+                        <p>Cantidad total de compras: {userCandyPurchases.totalAmount}</p>
                         <CandyPurchasesCards purchases={userCandyPurchases}/>
                     </div>
                 </div>
 
                 <div className="profile-row purchases">
-                    <h1>Purchases <FaShoppingBag/></h1>
+                    <h1>Compras <FaShoppingBag/></h1>
                     <PurchaseCards purchases={userPurchases}/>
                 </div>
                 

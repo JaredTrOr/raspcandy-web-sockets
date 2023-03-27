@@ -4,10 +4,11 @@
     margin: 5rem auto;
     width: 40%;
     background-color: white;
+    max-height: 90vh;
+    overflow-y: scroll;
     
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .form-row{

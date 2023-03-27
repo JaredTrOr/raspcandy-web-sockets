@@ -17,17 +17,17 @@ function CandyPurchasesCards({purchases}) {
                             <div className="body-purchase-card">
                                 <div className="card-portions">
                                     <p>{candyPurchase.small}</p>
-                                    <p>Small</p>
+                                    <p>Chico</p>
                                 </div>
 
                                 <div className="card-portions">
                                     <p>{candyPurchase.medium}</p>
-                                    <p>Medium</p>
+                                    <p>Mediano</p>
                                 </div>
 
                                 <div className="card-portions">
                                     <p>{candyPurchase.big}</p>
-                                    <p>Big</p>
+                                    <p>Grande</p>
                                 </div>
                             </div>
                         </div>

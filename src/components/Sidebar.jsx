@@ -13,19 +13,19 @@ function Sidebar(){
                 <li className='item'>
                     <Link className='item-link' to='/'>
                         <FaUser/>
-                        Manage users
+                        Ver usuarios
                     </Link>
                 </li>
                 <li className='item'>
                     <Link className='item-link' to='/administrators'>
                         <FaPencilAlt/>
-                        Manage administrators
+                        Ver administradores
                     </Link>
                 </li>
                 <li className='item'>
                     <Link className='item-link' to='/purchases'>
                         <FaShoppingBag/>
-                        Manage purchases
+                        Ver compras
                     </Link>
                 </li>
             </ul>

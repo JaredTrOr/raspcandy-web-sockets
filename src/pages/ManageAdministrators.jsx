@@ -31,23 +31,38 @@ function ManageAdministrators() {
     }, []);
 
     //EMITING
-
+    const handleOnCreateEditAdmin = (admin) => socket.emit('client:createEditAdmin', admin); 
+    const handleOnDeleteAdmin = (id) => socket.emit('client:deleteAdmin', id);
+    const handleOnEditButton = (id) => {
+        socket.emit('client:getAdminById', id);
+        setOpen(true);
+    }
 
     return (
         <div className="main-container">
             <div className="manage-user-admin-container">
-                <h1>Manage administrators</h1>
+                <h1>Manejo de administradores</h1>
 
                 <button className='btn-p btn-create' onClick={() => setOpen(true)}>
                     <FaPlus/>
-                    New administrator
+                    Crear administrador
                 </button>
 
                 <div className="table-container">
                     <AdminTable
                         admins={adminData}
+                        editButton={handleOnEditButton}
+                        deleteButton={handleOnDeleteAdmin}
                     />
                 </div>
+
+                <AdminModalComponent 
+                    open={open} 
+                    closeButton={setOpen} 
+                    createEditButton={handleOnCreateEditAdmin} 
+                    admin={adminByIdData}
+                    setAdmin={setAdminByIdData}
+                />
             </div>
         </div>
     );

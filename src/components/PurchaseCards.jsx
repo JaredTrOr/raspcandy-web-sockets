@@ -8,7 +8,7 @@ function PurchaseCards({purchases}) {
             <div className='no-purchases'>
                 <div className='no-purchase-message'>
                     <FaShoppingCart/>
-                    <p>No purchases yet :/</p>
+                    <p>Todavia no hay compras :/</p>
                 </div>
             </div>
         )
@@ -20,9 +20,9 @@ function PurchaseCards({purchases}) {
                 purchases.map((purchase, i) => {
                     return (
                         <div className="card" key={i}>
-                            <p>Candy name: {purchase.candyName}</p>
-                            <p>Size: {purchase.size}</p>
-                            <p>Date of purchase: {purchase.dateOfPurchase}</p>
+                            <p>Tipo de dulce: {purchase.candyName}</p>
+                            <p>Tamaño: {purchase.size}</p>
+                            <p>Fecha de compra: {purchase.dateOfPurchase}</p>
                         </div>
                     )
                 })            
