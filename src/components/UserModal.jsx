@@ -72,6 +72,8 @@ function ModalComponent({open, closeButton, createEditButton, user, setUser}) {
                             placeholder="Username" required
                         />
                     </div>
+                    {
+                    user.name === undefined && 
                     <div className="form-row">
                         <input 
                             onChange={(e) => setPassword(e.target.value)}
@@ -82,6 +84,7 @@ function ModalComponent({open, closeButton, createEditButton, user, setUser}) {
                             placeholder="Password" required
                         />
                     </div>
+                    }
                     <div className="form-row">
                         <input 
                             onChange={(e) => setEmail(e.target.value)}

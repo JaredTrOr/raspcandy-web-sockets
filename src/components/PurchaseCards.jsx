@@ -1,4 +1,18 @@
+import { FaShoppingCart } from 'react-icons/fa';
+
+
 function PurchaseCards({purchases}) {
+
+    if(purchases.length === 0) {
+        return (
+            <div className='no-purchases'>
+                <div className='no-purchase-message'>
+                    <FaShoppingCart/>
+                    <p>No purchases yet :/</p>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className="purchase-cards">

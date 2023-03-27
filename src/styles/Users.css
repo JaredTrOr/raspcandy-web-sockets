@@ -61,3 +61,70 @@
     border-radius: 10px;
     padding: 1rem;
 }
+
+.candy-purchases-cards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    margin-top: 2rem;
+
+    overflow: scroll;
+    height: 40vh;
+}
+
+.candy-purchase-container{
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: rgb(85, 85, 85);
+    width: 100%;
+    color: white;
+
+    display: grid;
+    gap: 1rem;
+}
+
+.body-purchase-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.card-portions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-purchase-card{
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.no-purchases {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-purchase-message{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.no-purchase-message > *{
+    font-size: 2rem;
+}
+
+
+
+
+
