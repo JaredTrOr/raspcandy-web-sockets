@@ -46,7 +46,7 @@ function ManageUsers() {
 
     return(
         <div className="main-container">
-            <div className="manage-user-container">
+            <div className="manage-user-admin-container">
                 <h1>Manage users</h1>
                 
                 <button className='btn-p btn-create' onClick={() => setOpen(true)}>

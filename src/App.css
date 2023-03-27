@@ -53,6 +53,10 @@ table, tr, td, th{
     background-color: rgb(255, 141, 160);
 }
 
+.message-validation{
+    color: rgb(197, 70, 70);
+}
+
 .btn-cancel{
     background-color: black;
 }

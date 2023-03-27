@@ -1,6 +1,6 @@
 import { Modal } from "@mui/material";
 import '../styles/Modal.css';
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 function ModalComponent({open, closeButton, createEditButton, user, setUser}) {
     
@@ -9,7 +9,7 @@ function ModalComponent({open, closeButton, createEditButton, user, setUser}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
-
+    const [message, setMessage] = useState('');
 
     useEffect(() => {
         const {_id, name, username, password, email} = user;
@@ -20,19 +20,17 @@ function ModalComponent({open, closeButton, createEditButton, user, setUser}) {
         setEmail(email);
     },[user]);
     
-    //REF HOOOKS
-    const idRef = useRef();
-    const nameRef = useRef();
-    const usernameRef = useRef();
-    const passwordRef = useRef();
-    const emailRef = useRef();
-    
     const handleOnClick = (e) => {
         e.preventDefault();
-        const user = {id,name,username,password,email}
-        createEditButton(user);
-        setUser({});
-        closeButton(false);
+        if(name !== undefined && username !== undefined && password !== undefined && email !== undefined){
+            const user = {id,name,username,password,email}
+            createEditButton(user);
+            setUser({});
+            closeButton(false);
+        }
+        else{
+            setMessage('Fill all the fields pls >:/')
+        }
     }
 
     const handleOnClose = () => {
@@ -49,14 +47,15 @@ function ModalComponent({open, closeButton, createEditButton, user, setUser}) {
             <div className="modal-container">
                 <form action="" className="form-container">
                     <h1>{user.name === undefined ? 'Create user' : 'Edit user'}</h1>
+                    <h4 className="message-validation">{message}</h4>
                     <div className="form-row">
-                        <input  type="text" ref={idRef} value={id} className="input" placeholder="Id" disabled required/>
+                        <input  type="text" value={id} className="input" placeholder="Id" disabled required/>
                     </div>
                     <div className="form-row">
                         <input 
+                            onClick={() => setMessage('')}
                             onChange={(e) => setName(e.target.value)}
                             type="text" 
-                            ref={nameRef} 
                             value={name} 
                             className="input" 
                             placeholder="Name" required
@@ -64,9 +63,9 @@ function ModalComponent({open, closeButton, createEditButton, user, setUser}) {
                     </div>
                     <div className="form-row">
                         <input 
+                            onClick={() => setMessage('')}
                             onChange={(e) => setUsername(e.target.value)}
                             type="text" 
-                            ref={usernameRef} 
                             value={username} 
                             className="input" 
                             placeholder="Username" required
@@ -76,9 +75,9 @@ function ModalComponent({open, closeButton, createEditButton, user, setUser}) {
                     user.name === undefined && 
                     <div className="form-row">
                         <input 
+                            onClick={() => setMessage('')}
                             onChange={(e) => setPassword(e.target.value)}
                             type="text" 
-                            ref={passwordRef} 
                             value={password} 
                             className="input" 
                             placeholder="Password" required
@@ -87,9 +86,9 @@ function ModalComponent({open, closeButton, createEditButton, user, setUser}) {
                     }
                     <div className="form-row">
                         <input 
+                            onClick={() => setMessage('')}
                             onChange={(e) => setEmail(e.target.value)}
                             type="email" 
-                            ref={emailRef} 
                             value={email} 
                             className="input" 
                             placeholder="Email" required
