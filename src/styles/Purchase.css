@@ -1,0 +1,17 @@
+.purchase-container{
+    margin-top: 3rem;
+    display: grid;
+    gap: 1rem;
+    width: 90%;
+    height: 90%;
+    overflow-y: scroll;
+}
+
+.purchase-card {
+    display: grid;
+    gap: 1rem;
+    font-size: larger;
+    border-radius: 10px;
+    padding: 2rem;
+    background-color: rgb(225, 192, 235);
+}

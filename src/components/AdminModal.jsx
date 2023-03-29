@@ -8,9 +8,14 @@ function AdminModalComponent({open, closeButton, createEditButton, admin, setAdm
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [address, setAddress] = useState({});
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+
+    //ADRESS 
+    const [street, setStreet] = useState('');
+    const [number, setNumber] = useState('');
+    const [place, setPlace] = useState('');
+
 
     useEffect(() => {
         const {_id, name, username, password, email, address} = admin;
@@ -18,17 +23,44 @@ function AdminModalComponent({open, closeButton, createEditButton, admin, setAdm
         setName(name);
         setUsername(username);
         setPassword(password);
-        setAddress(address);
         setEmail(email);
+
+        if(address !== undefined) {
+            setStreet(address.street);
+            setNumber(address.number);
+            setPlace(address.place);
+        }   
+
+
     },[admin]);
 
-    const handleOnClick = () => {
+    const handleOnClick = (e) => {
+        e.preventDefault();
 
+        if(name !== undefined && username !== undefined && 
+            password !== undefined && email !== undefined &&
+            street !== undefined && number!== undefined && place !== undefined
+        ){
+            const address = {street,number, place};
+            const admin = {id,name,username,password,email, address}
+            createEditButton(admin);
+            setAdmin({});
+            setStreet('');
+            setNumber('');
+            setPlace('');
+            closeButton(false);
+        }
+        else{
+            setMessage('Llena todos los campos porfavor >:/')
+        }
     }
 
     const handleOnClose = () => {
         closeButton(false);
         setAdmin({});
+        setStreet('');
+        setNumber('');
+        setPlace('');
     }
     
     
@@ -41,7 +73,7 @@ function AdminModalComponent({open, closeButton, createEditButton, admin, setAdm
             <div className="modal-container">
                 <form action="" className="form-container">
                     <h1>{admin.name === undefined ? 'Crear administrador' : 'Editar administrador'}</h1>
-                    <h4 className="message-validation"></h4>
+                    <h4 className="message-validation">{message}</h4>
                     <div className="form-row">
                         <span>Id:</span>
                         <input  type="text" value={id} className="input" placeholder="Id" disabled required/>
@@ -98,9 +130,9 @@ function AdminModalComponent({open, closeButton, createEditButton, admin, setAdm
                         <span>Escriba la calle de la comunidad:</span>
                         <input 
                             onClick={() => setMessage('')}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e) => setStreet(e.target.value)}
                             type="text" 
-                            value={email} 
+                            value={street} 
                             className="input" 
                             placeholder="Calle" required
                         />
@@ -110,9 +142,9 @@ function AdminModalComponent({open, closeButton, createEditButton, admin, setAdm
                         <span>Escriba el número de casa:</span>
                         <input 
                             onClick={() => setMessage('')}
-                            onChange={(e) => setEmail(e.target.value)}
-                            type="email" 
-                            value={email} 
+                            onChange={(e) => setNumber(e.target.value)}
+                            type="text" 
+                            value={number} 
                             className="input" 
                             placeholder="Número" required
                         />
@@ -122,9 +154,9 @@ function AdminModalComponent({open, closeButton, createEditButton, admin, setAdm
                         <span>Escriba el nombre de la comunidad:</span>
                         <input 
                             onClick={() => setMessage('')}
-                            onChange={(e) => setEmail(e.target.value)}
-                            type="email" 
-                            value={email} 
+                            onChange={(e) => setPlace(e.target.value)}
+                            type="text" 
+                            value={place} 
                             className="input" 
                             placeholder="Comunidad" required
                         />
